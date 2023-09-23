@@ -1,8 +1,7 @@
 import React from 'react'
 import {
   Route,
-  Routes,
-  Switch
+  Routes
 } from 'react-router-dom';
 import LandingPage from './pages/landingPage/LandingPage';
 import ManageUsers from './pages/manageUsers/ManageUsers';
