@@ -1,6 +1,6 @@
 # Complete Developer Network
 
-## Technologies Used: 
+### Technologies Used: 
 **Front-End: React JS**
 **Back End: .Net (C#)**
 **DBMS: MySQL**
