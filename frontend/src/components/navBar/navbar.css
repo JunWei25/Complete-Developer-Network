@@ -1,0 +1,44 @@
+.navbar {
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+  padding: 10px 0; /* Padding at the top and bottom */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Set a maximum width for the content */
+  margin: 0 auto; /* Center the content */
+  padding: 0 20px; /* Add padding to the sides */
+}
+
+.nav-logo {
+  text-decoration: none;
+  font-size: 24px; /* Logo font size */
+  font-weight: bold;
+  color: #fff; /* Logo text color */
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff; /* Link text color */
+  font-weight: 500;
+  transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+.nav-link:hover {
+  color: #007bff; /* Link color on hover */
+}

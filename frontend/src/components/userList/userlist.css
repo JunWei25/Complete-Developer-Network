@@ -1,0 +1,70 @@
+:root {
+  --primary-bg: #2c3e50;
+  --secondary-bg: #34495e;
+  --table-bg: #fbfbfb;
+  --header-bg: #5240da;
+  --text-color: #333;
+  --button-bg: #007bff;
+  --button-hover-bg: #0056b3;
+}
+
+.custom-table {
+  width: 100%;
+  height: 80vh;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0.2, 0.2, 0.2, 0.5);
+  background-color: var(--table-bg);
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  color: var(--text-color);
+}
+
+/* Set equal width for "Name," "Email," and "Phone Number" columns */
+.custom-table th:nth-child(1),
+.custom-table td:nth-child(1),
+.custom-table th:nth-child(2),
+.custom-table td:nth-child(2),
+.custom-table th:nth-child(3),
+.custom-table td:nth-child(3) {
+  width: 15%; /* Adjust the width as needed */
+}
+
+/* Set wider width for "Skillsets" and "Hobbies" columns */
+.custom-table th:nth-child(4),
+.custom-table td:nth-child(4),
+.custom-table th:nth-child(5),
+.custom-table td:nth-child(5) {
+  width: 20%; /* Adjust the width as needed */
+}
+
+.custom-table th {
+  background-color: var(--header-bg);
+  font-weight: bold;
+  color: #fff9f9;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: var(--secondary-bg);
+}
+
+.custom-table button {
+  background-color: var(--button-bg);
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.custom-table button:hover {
+  background-color: var(--button-hover-bg);
+}
