@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import UserList from "../../components/userList/UserList";
+import SuccessModal from "../../components/successModal/SuccessModal";
 import "./manageusers.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -9,6 +10,8 @@ function ManageUsers() {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [formData, setFormData] = useState({
     name: "",
@@ -41,11 +44,45 @@ function ManageUsers() {
     setUsers(updatedUsers);
   };
 
+  const showSuccess = (message) => {
+    setSuccessMessage(message);
+    setShowSuccessModal(true);
+
+    setTimeout(() => {
+      setShowSuccessModal(false);
+      setSuccessMessage("");
+    }, 3000);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (selectedUser) {
-    } else {
-    }
+    fetch("http://localhost:5004/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        skillsets: selectedSkillsets.map((item) => item.value),
+        hobbies: selectedHobbies.map((item) => item.value),
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Check if the API call was successful
+        if (data === "User added successfully") {
+
+          showSuccess("User added successfully");
+        } else {
+
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
     setSelectedUser(null);
     closeAddModal();
   };
@@ -171,6 +208,12 @@ function ManageUsers() {
             </form>
           </div>
         </div>
+      )}
+      {showSuccessModal && (
+        <SuccessModal
+          message={successMessage}
+          onClose={() => setShowSuccessModal(false)}
+        />
       )}
     </div>
   );
